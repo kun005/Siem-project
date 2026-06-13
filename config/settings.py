@@ -1,1 +1,5 @@
-AUTH_LOG_PATH = "/var/log/auth.log"
+##AUTH_LOG_PATH = "/var/log/auth.log"
+AUTH_LOG_PATH = "logs/sample/auth.log"
+EVE_JSON_PATH = "logs/suricata/eve.json"
+ES_HOST         = "http://localhost:9200"
+ES_INDEX_PREFIX = "siem-logs" 
