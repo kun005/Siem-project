@@ -3,7 +3,7 @@ import sys
 import os
 from datetime import datetime
 
-# ── Map severity số → chữ ───────────────────────────────────
+# Map severity số → chữ 
 SEVERITY_MAP = {
     1: "CRITICAL",
     2: "HIGH",
@@ -11,7 +11,7 @@ SEVERITY_MAP = {
     4: "LOW",
 }
 
-# ── Hàm chuẩn hóa timestamp ─────────────────────────────────
+#  Hàm chuẩn hóa timestamp
 def normalize_timestamp(raw_time: str) -> str:
     try:
         # Cắt bỏ phần microsecond và timezone
@@ -19,7 +19,7 @@ def normalize_timestamp(raw_time: str) -> str:
     except Exception:
         return datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
-# ── Hàm parse từng dòng JSON ────────────────────────────────
+# Hàm parse từng dòng JSON
 def parse_line(line: str) -> dict | None:
     """
     Nhận vào 1 dòng JSON từ eve.json
@@ -61,7 +61,7 @@ def parse_line(line: str) -> dict | None:
         "raw_log":     line,
     }
 
-# ── Hàm đọc toàn bộ file eve.json ───────────────────────────
+#  Hàm đọc toàn bộ file eve.json
 def parse_eve_json(filepath: str) -> list[dict]:
     results = []
 
@@ -80,7 +80,6 @@ def parse_eve_json(filepath: str) -> list[dict]:
 
     return results
 
-# ── Chạy thử ────────────────────────────────────────────────
 if __name__ == "__main__":
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from config.settings import EVE_JSON_PATH

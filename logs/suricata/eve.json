@@ -1,0 +1,5 @@
+{"timestamp":"2026-05-15T08:23:11.123456+0700","event_type":"alert","src_ip":"192.168.1.10","src_port":52341,"dest_ip":"192.168.56.20","dest_port":22,"proto":"TCP","alert":{"signature":"ET SCAN SSH BruteForce Tool","severity":2,"category":"Attempted Information Leak"}}
+{"timestamp":"2026-05-15T08:23:15.234567+0700","event_type":"alert","src_ip":"192.168.1.10","src_port":44123,"dest_ip":"192.168.56.20","dest_port":80,"proto":"TCP","alert":{"signature":"ET SCAN Nmap SYN Scan","severity":3,"category":"Network Scan"}}
+{"timestamp":"2026-05-15T08:23:20.345678+0700","event_type":"flow","src_ip":"192.168.1.5","src_port":43210,"dest_ip":"192.168.56.20","dest_port":22,"proto":"TCP"}
+{"timestamp":"2026-05-15T08:24:01.456789+0700","event_type":"alert","src_ip":"192.168.1.10","src_port":55123,"dest_ip":"192.168.56.20","dest_port":443,"proto":"TCP","alert":{"signature":"ET EXPLOIT OpenSSL Heartbleed","severity":1,"category":"Exploit"}}
+{"timestamp":"2026-05-15T08:24:30.567890+0700","event_type":"dns","src_ip":"192.168.56.20","dest_ip":"8.8.8.8","proto":"UDP"}

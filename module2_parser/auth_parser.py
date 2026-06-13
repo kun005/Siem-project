@@ -1,5 +1,7 @@
 import re
 import json
+import sys
+import os
 from datetime import datetime
 from dateutil import parser as date_parser
 
@@ -31,7 +33,6 @@ def normalize_timestamp(raw_time: str) -> str:
 
 # Hàm parse từng dòng log
 def parse_line(line: str) -> dict | None:
-
     line = line.strip()
     if not line:
         return None
@@ -63,9 +64,7 @@ def parse_line(line: str) -> dict | None:
     return None
 
 def parse_auth_log(filepath: str) -> list[dict]:
-  
     results = []
-
     try:
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             for line_num, line in enumerate(f, start=1):
@@ -82,16 +81,11 @@ def parse_auth_log(filepath: str) -> list[dict]:
     return results
 
 if __name__ == "__main__":
-    import sys
-    import os
 
     # Thêm thư mục gốc vào sys.path để import settings
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from config.settings import AUTH_LOG_PATH
 
-    # Ưu tiên 1: đường dẫn truyền từ terminal
-    # Ưu tiên 2: đường dẫn từ settings.py
-    # Ví dụ chạy: python3 auth_parser.py /var/log/auth.log
     log_path = sys.argv[1] if len(sys.argv) > 1 else AUTH_LOG_PATH
 
     print(f"[*] Đang parse file: {log_path}")
